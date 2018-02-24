@@ -1,0 +1,47 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Learn your squares and cubes!</h1>
+        <div>
+            <label>Enter an integer:</label>
+            <input id="integer" type="text" size="10" ><br/>
+            <button type="submit" onclick="Calculate()">Calculate</button>
+        </div>
+    <table border="1" cellpadding="3" id="printTable">
+        <thead>
+            <tr>
+                <th>Integer</th>
+                <th>Squared</th>      
+                <th>Cubed</th>
+            </tr>
+            <tbody id="resultTable">
+            </tbody>
+        </thead>
+    </table>    
+</body>
+
+<script>
+    function Calculate()
+    {
+        ResetTable();
+        PrintTableElements();
+        $("#integer").text("");
+    }
+    function PrintTableElements()
+    {
+        var input = $("#integer").val();
+        for (var i = 1; i<=input; i++)
+        {
+            var square = i*i;
+            var cube = i*i*i;
+            $("#resultTable").append("<tr><td>" + i + "</td><td>" +  square + "</td><td>" + cube + "</td></tr>");
+        }
+    }
+    function ResetTable()
+    {
+        $("#resultTable").text("");
+    }
+</script>
+</html>
